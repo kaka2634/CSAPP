@@ -143,6 +143,7 @@ NOTES:
  *   Rating: 1
  */
 int bitXor(int x, int y) {
+    //x^y= (~x & y) ||(x & ~y)
     int result = ~((~(~x & y))& (~(x & (~y))));
     return result;
 }
@@ -166,7 +167,9 @@ int tmin(void) {
  *   Rating: 1
  */
 int isTmax(int x) {
-  return 2;
+  //Tmax+1==Tmin Tmin+Tmin=0
+  //exclude x=-1 -> x+1!=0
+  return !((x+x+2)+!(x+1));
 }
 /* 
  * allOddBits - return 1 if all odd-numbered bits in word set to 1
